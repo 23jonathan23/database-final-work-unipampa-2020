@@ -1,0 +1,30 @@
+Normalização:
+
+Base de dados não normalizada: https://docs.google.com/spreadsheets/d/175K0eEdAJUvkEAMdcWrb3vPvsxf1XZMnI3iLIM-y0H4/edit?usp=sharing
+
+NÑ
+	EscolasComPlanosPNMEAprovados(QuantidadeAlunado, ValorRecebido
+		(NomeUF, NomeMunicipio, EsferaGovEscola, LocalizacaoEscola, InepEscola__, NomeEscola, QuantidadeAlunado, ValorRecebido))
+		
+1FN
+	PlanoPnmeAprovado(QuantidadeAlunado, ValorRecebido, InepEscola__)
+	Escola(InepEscola__, NomeEscola, EsferaGovEscola, LocalizacaoEscola, NomeUF, NomeMunicipio)
+	
+2FN
+	PlanoPnmeAprovado(QuantidadeAlunado, ValorRecebido, InepEscola__)
+	Escola(InepEscola__, NomeEscola, EsferaGovEscola, LocalizacaoEscola, NomeUF, NomeMunicipio)
+	
+3FN
+	PlanoPnmeAprovado(InepEscola__, QuantidadeAlunado, ValorRecebido)
+	Escola(InepEscola__, NomeEscola, CodMunicipio, EsferaGovEscola, LocalizacaoEscola)
+	Municipio(CodMunicipio__, NomeMunicipio, NomeUF)
+	
+Modelo Lógico Relacional:
+
+	PlanoPnmeAprovado(InepEscola__, QuantidadeAlunado, ValorRecebido)
+		InepEscola referece Escola
+	Escola(Inep__, Nome, CodMunicipio, EsferaGov, Localizacao)
+		CodMunicipio referece Municipio
+	Municipio(Codigo__, Nome, UF)
+		UF referece Estado
+	Estado(UF__, Nome)
