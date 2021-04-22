@@ -21,7 +21,7 @@ NÑ
 	
 Modelo Lógico Relacional:
 
-	PlanoGovernamentalAprovado(InepEscola__,CodPlanoGovernamental__, QuantidadeBeneficiado, ValorRecebido)
+    PlanoGovernamentalAprovado(InepEscola__,CodPlanoGovernamental__, QuantidadeBeneficiado, ValorRecebido)
         InepEscola referencia Escola
         CodPlanoGovernamental referencia PlanoGovernamental
     PlanoGovernamental(Codigo__, nome, descricao, sigla)
