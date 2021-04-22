@@ -21,10 +21,12 @@ NÑ
 	
 Modelo Lógico Relacional:
 
-	PlanoPnmeAprovado(InepEscola__, QuantidadeAlunado, ValorRecebido)
-		InepEscola referece Escola
-	Escola(Inep__, Nome, CodMunicipio, EsferaGov, Localizacao)
-		CodMunicipio referece Municipio
-	Municipio(Codigo__, Nome, UF)
-		UF referece Estado
-	Estado(UF__, Nome)
+	PlanoGovernamentalAprovado(InepEscola__,CodPlanoGovernamental__, QuantidadeBeneficiado, ValorRecebido)
+        InepEscola referencia Escola
+        CodPlanoGovernamental referencia PlanoGovernamental
+    PlanoGovernamental(Codigo__, nome, descricao, sigla)
+    Escola(Inep__, Nome, CodMunicipio, EsferaGov, Localizacao)
+        CodMunicipio referencia Municipio
+    Municipio(Codigo__, Nome, UF)
+        UF referencia Estado
+    Estado(UF__, Nome)
