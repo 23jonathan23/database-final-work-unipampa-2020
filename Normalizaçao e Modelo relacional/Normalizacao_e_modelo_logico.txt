@@ -25,8 +25,10 @@ Modelo Lógico Relacional:
         InepEscola referencia Escola
         CodPlanoGovernamental referencia PlanoGovernamental
     PlanoGovernamental(Codigo__, nome, descricao, sigla)
-    Escola(Inep__, Nome, CodMunicipio, EsferaGov, Localizacao)
+    Escola(Inep__, Nome, CodMunicipio, CodEsferaGov, Localizacao)
         CodMunicipio referencia Municipio
+		CodEsferaGov referencia EsferaGovernamental
+	EsferaGovernamental(Codigo__, Nome)
     Municipio(Codigo__, Nome, UF)
         UF referencia Estado
     Estado(UF__, Nome)
