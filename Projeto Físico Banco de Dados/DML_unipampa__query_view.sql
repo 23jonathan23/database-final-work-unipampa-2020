@@ -81,10 +81,11 @@ AS(
 	SELECT 
 		e.nome as Escola,
 		to_char((valorRecebido / 100), 'L9G999G990D99') as ValorRecebido,
-		e.localizacao
+		l.nome
 	FROM PlanoGovernamentalAprovado pga
 	INNER JOIN Escola e ON e.inep = pga.inepEscola
-	WHERE e.localizacao = 'RURAL'
+	INNER JOIN Localizacao l ON l.id = e.localizacaoId
+	WHERE l.nome = 'RURAL'
 	ORDER BY ValorRecebido DESC
 )
 
@@ -100,10 +101,11 @@ AS(
 	SELECT 
 		e.nome as Escola,
 		to_char((valorRecebido / 100), 'L9G999G990D99') as ValorRecebido,
-		e.localizacao
+		l.nome
 	FROM PlanoGovernamentalAprovado pga
 	INNER JOIN Escola e ON e.inep = pga.inepEscola
-	WHERE e.localizacao = 'URBANA'
+	INNER JOIN Localizacao l ON l.id = e.localizacaoId
+	WHERE l.nome = 'URBANA'
 	ORDER BY ValorRecebido DESC
 )
 
@@ -117,12 +119,12 @@ CREATE VIEW
 	TotalDeEscolasUrbanaERural
 AS(
 	SELECT 
-		e.localizacao,
+		l.nome,
 		COUNT(e.*) as Escolas
 	FROM PlanoGovernamentalAprovado pga
 	INNER JOIN Escola e ON e.inep = pga.inepEscola
-	WHERE e.localizacao = 'URBANA' OR e.localizacao = 'RURAL'
-	GROUP BY e.localizacao
+	INNER JOIN Localizacao l ON l.id = e.localizacaoId
+	GROUP BY l.nome
 )
 
 SELECT * from TotalDeEscolasUrbanaERural
