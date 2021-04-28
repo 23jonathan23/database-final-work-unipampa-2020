@@ -18,10 +18,15 @@ CREATE TABLE EsferaGovernamental(
 	nome VARCHAR(30) UNIQUE NOT NULL
 )
 
+CREATE TABLE Localizacao(
+	id SERIAL PRIMARY KEY,
+	nome VARCHAR(30) UNIQUE NOT NULL
+)
+
 CREATE TABLE Escola(
 	inep INTEGER PRIMARY KEY,
 	nome VARCHAR(100) NOT NULL,
-	localizacao VARCHAR(30) NOT NULL,
+	localizacaoId INTEGER NOT NULL REFERENCES Localizacao(id),
 	esferaGovId INTEGER NOT NULL REFERENCES EsferaGovernamental(id),
 	municipioId INTEGER NOT NULL REFERENCES Municipio(id)
 )
@@ -44,6 +49,7 @@ CREATE TABLE PlanoGovernamentalAprovado(
 DROP TABLE PlanoGovernamentalAprovado
 DROP TABLE PlanoGovernamental
 DROP TABLE Escola
+DROP TABLE Localizacao
 DROP TABLE EsferaGovernamental
 DROP TABLE Municipio
 DROP TABLE Estado
