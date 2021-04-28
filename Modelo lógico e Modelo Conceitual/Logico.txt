@@ -1,5 +1,5 @@
 PlanoGovernamentalAprovado(InepEscola__,CodPlanoGovernamental__, QuantidadeBeneficiado, ValorRecebido)
-	InepEscola referencia Escola
+    InepEscola referencia Escola
     CodPlanoGovernamental referencia PlanoGovernamental
 PlanoGovernamental(Codigo__, nome, descricao, sigla)
 Escola(Inep__, Nome, CodMunicipio, CodEsferaGov, CodLocalizacao)
