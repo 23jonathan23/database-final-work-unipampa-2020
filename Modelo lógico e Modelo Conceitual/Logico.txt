@@ -1,11 +1,13 @@
 PlanoGovernamentalAprovado(InepEscola__,CodPlanoGovernamental__, QuantidadeBeneficiado, ValorRecebido)
 	InepEscola referencia Escola
-        CodPlanoGovernamental referencia PlanoGovernamental
+    CodPlanoGovernamental referencia PlanoGovernamental
 PlanoGovernamental(Codigo__, nome, descricao, sigla)
-Escola(Inep__, Nome, CodMunicipio, CodEsferaGov, Localizacao)
-        CodMunicipio referencia Municipio
+Escola(Inep__, Nome, CodMunicipio, CodEsferaGov, CodLocalizacao)
+    CodMunicipio referencia Municipio
 	CodEsferaGov referencia EsferaGovernamental
+	CodLocalizacao referencia Localizacao
+Localizacao(Codigo__, Nome)
 EsferaGovernamental(Codigo__, Nome)
 Municipio(Codigo__, Nome, UF)
-        UF referencia Estado
+    UF referencia Estado
 Estado(UF__, Nome)
